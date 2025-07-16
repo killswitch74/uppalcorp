@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Database, Bot, ShoppingCart } from "lucide-react";
+import { ArrowRight, Database, Bot, ShoppingCart, FileText, Zap, BarChart3 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const ProjectsSection = () => {

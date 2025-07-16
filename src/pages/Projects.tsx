@@ -14,7 +14,11 @@ import {
   ExternalLink,
   Calendar,
   Target,
-  TrendingUp
+  TrendingUp,
+  Building2,
+  Smartphone,
+  Cloud,
+  Shield
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
@@ -137,6 +141,86 @@ const Projects = () => {
       ],
       impact: "45% improvement in decision-making speed",
       duration: "7 months",
+      status: "Completed",
+      color: "bg-gradient-secondary"
+    },
+    {
+      id: 7,
+      title: "Smart Building Management System",
+      description: "IoT-enabled building automation platform for monitoring and controlling HVAC, lighting, security, and energy systems across multiple facilities.",
+      fullDescription: "A comprehensive building management solution that integrates IoT sensors and smart devices to monitor and control building systems. The platform provides real-time monitoring, predictive maintenance, and energy optimization capabilities.",
+      icon: Building2,
+      technologies: ["IoT", "React", "Node.js", "MQTT", "Time Series Database", "Machine Learning"],
+      features: [
+        "Real-time monitoring",
+        "Predictive maintenance",
+        "Energy optimization",
+        "Security integration",
+        "Mobile app control",
+        "Automated scheduling"
+      ],
+      impact: "35% reduction in energy costs",
+      duration: "9 months",
+      status: "Completed",
+      color: "bg-gradient-primary"
+    },
+    {
+      id: 8,
+      title: "Cross-Platform Mobile App Suite",
+      description: "Multi-platform mobile application development with native performance, offline capabilities, and seamless cloud synchronization.",
+      fullDescription: "A comprehensive mobile app development project that delivered native-quality apps for iOS and Android with shared codebase. The apps feature offline functionality, real-time synchronization, and enterprise-grade security.",
+      icon: Smartphone,
+      technologies: ["React Native", "TypeScript", "Firebase", "Redux", "Push Notifications", "Biometric Auth"],
+      features: [
+        "Cross-platform compatibility",
+        "Offline functionality",
+        "Real-time sync",
+        "Push notifications",
+        "Biometric authentication",
+        "Enterprise security"
+      ],
+      impact: "80% code reusability across platforms",
+      duration: "6 months",
+      status: "Completed",
+      color: "bg-gradient-secondary"
+    },
+    {
+      id: 9,
+      title: "Cloud Infrastructure Automation",
+      description: "DevOps automation platform for cloud infrastructure provisioning, deployment, and monitoring with multi-cloud support.",
+      fullDescription: "A DevOps automation solution that streamlines cloud infrastructure management across multiple cloud providers. The platform automates provisioning, deployment, scaling, and monitoring of cloud resources with built-in cost optimization.",
+      icon: Cloud,
+      technologies: ["Terraform", "Docker", "Kubernetes", "AWS", "Azure", "Monitoring Tools"],
+      features: [
+        "Multi-cloud support",
+        "Automated provisioning",
+        "Container orchestration",
+        "Cost optimization",
+        "Monitoring & alerting",
+        "CI/CD pipeline"
+      ],
+      impact: "60% reduction in deployment time",
+      duration: "8 months",
+      status: "Ongoing",
+      color: "bg-gradient-primary"
+    },
+    {
+      id: 10,
+      title: "Cybersecurity Compliance Platform",
+      description: "Enterprise security management platform for compliance tracking, vulnerability assessment, and automated security reporting.",
+      fullDescription: "A comprehensive cybersecurity platform that helps organizations maintain compliance with industry standards while providing continuous security monitoring and automated threat detection.",
+      icon: Shield,
+      technologies: ["Python", "Security APIs", "Vulnerability Scanners", "Compliance Frameworks", "Reporting"],
+      features: [
+        "Compliance tracking",
+        "Vulnerability assessment",
+        "Automated reporting",
+        "Threat detection",
+        "Risk management",
+        "Security dashboards"
+      ],
+      impact: "95% compliance score achievement",
+      duration: "12 months",
       status: "Completed",
       color: "bg-gradient-secondary"
     }

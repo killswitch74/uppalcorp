@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ClientsSection from "@/components/ClientsSection";
+import ClientsMarquee from "@/components/ClientsMarquee";
+import ServicesShowcase from "@/components/ServicesShowcase";
 import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
 
@@ -11,7 +12,8 @@ const Home = () => {
       <Header />
       <main>
         <Hero />
-        <ClientsSection />
+        <ClientsMarquee />
+        <ServicesShowcase />
         <ProjectsSection />
       </main>
       <Footer />
