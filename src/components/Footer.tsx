@@ -29,7 +29,7 @@ const Footer = () => {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/karan-uppala12718165",
+      url: "https://www.linkedin.com/in/karan-uppal-a12718165/",
       icon: Linkedin
     },
     {

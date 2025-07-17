@@ -54,7 +54,7 @@ const Contact = () => {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/karan-uppala12718165",
+      url: "https://www.linkedin.com/in/karan-uppal-a12718165/",
       icon: Linkedin,
       color: "bg-blue-600 hover:bg-blue-700"
     },
