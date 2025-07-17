@@ -1,22 +1,18 @@
-# Welcome to your Lovable project
+# Uppal Corporation - Digital Forge
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/66f60917-4af8-41bf-9817-3a42f91ce85d
+**Company**: Uppal Corporation  
+**Founder**: Karan Uppal  
+**Specialization**: AI, RPA & Full-Stack Development
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/66f60917-4af8-41bf-9817-3a42f91ce85d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +58,20 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/66f60917-4af8-41bf-9817-3a42f91ce85d) and click on Share -> Publish.
+This project can be deployed to any hosting platform that supports Vite/React applications, such as:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
+- Firebase Hosting
 
-Yes, you can!
+## Technologies Used
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is built with:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
