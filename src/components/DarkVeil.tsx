@@ -80,11 +80,11 @@ void main(){
     float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
     col.rgb*=1.-(scanline_val*scanline_val)*uScan;
     col.rgb+=(rand(gl_FragCoord.xy+uTime)-0.5)*uNoise;
-    // Invert colors for white/light background
+    // Invert colors for white background, then tint with light purple
     col.rgb = 1.0 - col.rgb;
-    // Apply light purple theme color tint
-    vec3 purpleTheme = vec3(0.7, 0.6, 0.9); // Light purple-ish color
-    col.rgb = mix(vec3(1.0), purpleTheme, col.rgb);
+    // Apply light purple tint to the waves while keeping white background
+    vec3 purpleTint = vec3(0.8, 0.7, 1.0); // Light purple color
+    col.rgb = mix(vec3(1.0), col.rgb * purpleTint, 1.0 - col.r); // Mix white background with purple-tinted waves
     gl_FragColor=vec4(clamp(col.rgb,0.0,1.0),1.0);
 }
 `;
