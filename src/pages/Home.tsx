@@ -5,10 +5,16 @@ import ClientsMarquee from "@/components/ClientsMarquee";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <AnimatedBackground
+      hue={240}
+      hoverIntensity={0.2}
+      rotateOnHover={true}
+      className="min-h-screen bg-background"
+    >
       <Header />
       <main>
         <Hero />
@@ -17,7 +23,7 @@ const Home = () => {
         <ProjectsSection />
       </main>
       <Footer />
-    </div>
+    </AnimatedBackground>
   );
 };
 

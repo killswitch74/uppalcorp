@@ -2,10 +2,20 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Zap, Bot } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import DarkVeilBackground from "./DarkVeilBackground";
 
 const Hero = () => {
   return (
-    <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <DarkVeilBackground
+      hueShift={240}
+      noiseIntensity={0.05}
+      scanlineIntensity={0.08}
+      speed={0.8}
+      scanlineFrequency={0.01}
+      warpAmount={0.4}
+      opacity={0.4}
+      className="pt-20 pb-16 px-4 sm:px-6 lg:px-8"
+    >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Badge */}
@@ -74,7 +84,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+    </DarkVeilBackground>
   );
 };
 
