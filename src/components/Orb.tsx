@@ -179,7 +179,23 @@ export default function Orb({
     const container = ctnDom.current;
     if (!container) return;
 
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    // Mobile detection and performance optimization
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    // Check WebGL support
+    const testCanvas = document.createElement('canvas');
+    const testGL = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+    if (!testGL) {
+      console.warn('WebGL not supported, Orb background will not render');
+      return;
+    }
+
+    const renderer = new Renderer({
+      alpha: true,
+      premultipliedAlpha: false,
+      antialias: !isMobile, // Disable antialiasing on mobile for better performance
+      powerPreference: isMobile ? 'low-power' : 'high-performance'
+    });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     container.appendChild(gl.canvas);
@@ -208,7 +224,7 @@ export default function Orb({
 
     function resize() {
       if (!container) return;
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       const width = container.clientWidth;
       const height = container.clientHeight;
       renderer.setSize(width * dpr, height * dpr);

@@ -70,8 +70,8 @@ vec4 cppn_fn(vec2 coordinate,float in0,float in1,float in2){
 void mainImage(out vec4 fragColor,in vec2 fragCoord){
     vec2 uv=fragCoord/uResolution.xy*2.-1.;
     uv.y*=-1.;
-    uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.5),cos(uv.x*6.283+uTime*0.5))*0.05;
-    fragColor=cppn_fn(uv,0.1*sin(0.3*uTime),0.1*sin(0.69*uTime),0.1*sin(0.44*uTime));
+    uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.625),cos(uv.x*6.283+uTime*0.625))*0.05;
+    fragColor=cppn_fn(uv,0.1*sin(0.375*uTime),0.1*sin(0.8625*uTime),0.1*sin(0.55*uTime));
 }
 
 void main(){
@@ -82,8 +82,8 @@ void main(){
     col.rgb+=(rand(gl_FragCoord.xy+uTime)-0.5)*uNoise;
     // Invert colors for white background, then tint with light purple
     col.rgb = 1.0 - col.rgb;
-    // Apply light purple tint to the waves while keeping white background
-    vec3 purpleTint = vec3(0.8, 0.7, 1.0); // Light purple color
+    // Apply lavender tint to the waves while keeping white background
+    vec3 purpleTint = vec3(0.9, 0.8, 1.0); // Lavender color
     col.rgb = mix(vec3(1.0), col.rgb * purpleTint, 1.0 - col.r); // Mix white background with purple-tinted waves
     gl_FragColor=vec4(clamp(col.rgb,0.0,1.0),1.0);
 }
@@ -103,13 +103,27 @@ export default function DarkVeil({
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    
+
     const parent = canvas.parentElement;
     if (!parent) return;
 
+    // Mobile detection and performance optimization
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio, 2);
+
+    // Check WebGL support
+    const testCanvas = document.createElement('canvas');
+    const testGL = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+    if (!testGL) {
+      console.warn('WebGL not supported, DarkVeil background will not render');
+      return;
+    }
+
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr,
       canvas,
+      alpha: true,
+      antialias: !isMobile, // Disable antialiasing on mobile for better performance
     });
 
     const gl = renderer.gl;
