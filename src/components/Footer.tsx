@@ -49,7 +49,7 @@ const Footer = () => {
               <img
                 src="/logo.png"
                 alt="Uppal Corporation Logo"
-                className="w-13 h-13 object-contain"
+                className="h-12 w-auto object-contain"
               />
               <span className="text-lg font-bold text-foreground">Uppal Corporation</span>
             </div>

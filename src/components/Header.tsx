@@ -24,7 +24,7 @@ const Header = () => {
             <img
               src="/logo.png"
               alt="Uppal Corporation Logo"
-              className="w-13 h-13 object-contain"
+              className="h-12 w-auto object-contain"
             />
             <span className="text-xl font-bold text-foreground">Uppal Corporation</span>
           </NavLink>
