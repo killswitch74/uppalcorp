@@ -29,7 +29,7 @@ export default function Orb({
   `;
 
   const frag = /* glsl */ `
-    precision highp float;
+    precision mediump float;
 
     uniform float iTime;
     uniform vec3 iResolution;
@@ -241,20 +241,30 @@ export default function Orb({
 
     let lastTime = 0;
     let currentRot = 0;
-    const rotationSpeed = 0.3;
+    const rotationSpeed = 0.2; // Reduced rotation speed
+    const targetFPS = isMobile ? 30 : 60; // Lower FPS on mobile
+    const frameInterval = 1000 / targetFPS;
+    let lastFrameTime = 0;
 
     let rafId: number;
     const update = (t: number) => {
       rafId = requestAnimationFrame(update);
+
+      // Frame rate limiting
+      if (t - lastFrameTime < frameInterval) {
+        return;
+      }
+      lastFrameTime = t;
+
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
       program.uniforms.iTime.value = t * 0.001;
       program.uniforms.hue.value = hue;
-      program.uniforms.hoverIntensity.value = hoverIntensity;
+      program.uniforms.hoverIntensity.value = hoverIntensity * 0.7; // Reduce intensity
 
       // Set hover to forceHoverState value or 0 (no mouse interaction)
       const effectiveHover = forceHoverState ? 1 : 0;
-      program.uniforms.hover.value += (effectiveHover - program.uniforms.hover.value) * 0.1;
+      program.uniforms.hover.value += (effectiveHover - program.uniforms.hover.value) * 0.05; // Slower transition
 
       if (rotateOnHover && effectiveHover > 0.5) {
         currentRot += dt * rotationSpeed;

@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <AnimatedBackground
       hue={240}
-      hoverIntensity={0.2}
-      rotateOnHover={true}
+      hoverIntensity={0.1}
+      rotateOnHover={false}
       className="min-h-screen bg-background"
     >
       <Header />

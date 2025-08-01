@@ -20,12 +20,12 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 }) => {
   return (
     <div className={`relative ${className}`}>
-      {/* Background Orb - positioned to receive all mouse events */}
+      {/* Background Orb - optimized for performance */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-20">
           <Orb
             hue={hue}
-            hoverIntensity={hoverIntensity}
+            hoverIntensity={hoverIntensity * 0.6} // Reduce intensity by 40%
             rotateOnHover={rotateOnHover}
             forceHoverState={forceHoverState}
           />
