@@ -45,10 +45,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">U</span>
-              </div>
+            <div className="flex items-center space-x-3">
+              <img
+                src="/logo.png"
+                alt="Uppal Corporation Logo"
+                className="w-10 h-10 object-contain"
+              />
               <span className="text-lg font-bold text-foreground">Uppal Corporation</span>
             </div>
             <p className="text-muted-foreground">
