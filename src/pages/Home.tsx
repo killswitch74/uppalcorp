@@ -6,16 +6,10 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Home = () => {
   return (
-    <AnimatedBackground
-      hue={240}
-      hoverIntensity={0.1}
-      rotateOnHover={false}
-      className="min-h-screen bg-background"
-    >
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Hero />
@@ -25,7 +19,7 @@ const Home = () => {
         <ProjectsSection />
       </main>
       <Footer />
-    </AnimatedBackground>
+    </div>
   );
 };
 
