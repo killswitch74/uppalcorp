@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  MapPin,
+  Phone,
+  Mail,
   MessageCircle,
   Github,
   Linkedin,
@@ -17,7 +17,82 @@ import {
   Clock
 } from "lucide-react";
 
+// Form data interface
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  project: string;
+  message: string;
+}
+
 const Contact = () => {
+  // Form state management
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    project: '',
+    message: ''
+  });
+
+  // Handle input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Format data for WhatsApp message
+  const formatWhatsAppMessage = (data: FormData): string => {
+    const message = `*New Contact Form Submission*
+
+*Name:* ${data.firstName} ${data.lastName}
+*Email:* ${data.email}
+*Phone:* ${data.phone || 'Not provided'}
+*Project Type:* ${data.project}
+
+*Message:*
+${data.message}
+
+---
+Sent via Uppal Corporation website contact form`;
+
+    return encodeURIComponent(message);
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate required fields
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.project || !formData.message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Format message for WhatsApp
+    const whatsappMessage = formatWhatsAppMessage(formData);
+    const whatsappUrl = `https://wa.me/9818058919?text=${whatsappMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Optional: Reset form after submission
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      project: '',
+      message: ''
+    });
+  };
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -65,12 +140,6 @@ const Contact = () => {
       color: "bg-green-600 hover:bg-green-700"
     }
   ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted");
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -138,86 +207,108 @@ const Contact = () => {
                     Send us a Message
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and it will open WhatsApp with your message ready to send. We'll respond within 24 hours.
                   </p>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName">First Name</Label>
+                        <Label htmlFor="firstName">First Name *</Label>
                         <Input
                           id="firstName"
+                          name="firstName"
                           type="text"
                           placeholder="John"
                           className="mt-1"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
                       <div>
-                        <Label htmlFor="lastName">Last Name</Label>
+                        <Label htmlFor="lastName">Last Name *</Label>
                         <Input
                           id="lastName"
+                          name="lastName"
                           type="text"
                           placeholder="Doe"
                           className="mt-1"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
                     </div>
                     
                     <div>
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@example.com"
                         className="mt-1"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         required
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input
                         id="phone"
+                        name="phone"
                         type="tel"
                         placeholder="+91 9876543210"
                         className="mt-1"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                       />
                     </div>
                     
                     <div>
-                      <Label htmlFor="project">Project Type</Label>
-                      <select 
+                      <Label htmlFor="project">Project Type *</Label>
+                      <select
                         id="project"
+                        name="project"
                         className="mt-1 w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                        value={formData.project}
+                        onChange={handleInputChange}
                         required
                       >
                         <option value="">Select a project type</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="ai-automation">AI & Automation</option>
-                        <option value="ecommerce">E-commerce Solutions</option>
-                        <option value="data-analytics">Data Analytics</option>
-                        <option value="consulting">Consulting</option>
-                        <option value="other">Other</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="AI & Automation">AI & Automation</option>
+                        <option value="E-commerce Solutions">E-commerce Solutions</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                     
                     <div>
-                      <Label htmlFor="message">Message</Label>
+                      <Label htmlFor="message">Message *</Label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us about your project..."
+                        name="message"
+                        placeholder="Tell us about your project requirements, timeline, budget, and any specific features you need..."
                         className="mt-1 min-h-[120px]"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         required
                       />
                     </div>
                     
                     <Button type="submit" variant="hero" size="lg" className="w-full">
-                      Send Message
-                      <Send className="ml-2 h-5 w-5" />
+                      Send via WhatsApp
+                      <MessageCircle className="ml-2 h-5 w-5" />
                     </Button>
+
+                    <p className="text-sm text-muted-foreground text-center mt-2">
+                      * Required fields. Clicking "Send via WhatsApp" will open WhatsApp with your message pre-filled.
+                    </p>
                   </form>
                 </CardContent>
               </Card>
