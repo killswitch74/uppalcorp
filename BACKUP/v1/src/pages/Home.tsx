@@ -2,7 +2,6 @@ import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ClientsMarquee from "@/components/ClientsMarquee";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
@@ -20,7 +19,6 @@ const Home = () => {
       <main>
         <Hero />
         <ClientsMarquee />
-        <TestimonialsSection />
         <ServicesShowcase />
         <ProjectsSection />
       </main>

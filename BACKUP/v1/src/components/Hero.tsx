@@ -11,22 +11,22 @@ const Hero = () => {
           {/* Hero Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-hero border border-border mb-6">
             <span className="text-sm font-medium text-foreground">
-              Transforming Businesses Through Intelligent Automation
+              Building the Future with AI & Automation
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            AI-Powered Solutions That{" "}
+            Smart, Scalable Solutions with{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Scale Your Business
+              AI & RPA
             </span>
           </h1>
 
           {/* Subheading */}
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            From e-commerce automation to enterprise AI systems - we build intelligent solutions
-            that eliminate manual work, reduce costs, and accelerate growth for startups and enterprises.
+            Full-stack development, AI automation, and RPA solutions that eliminate inefficiency 
+            and drive growth. From e-commerce automation to smart inventory systems.
           </p>
 
           {/* CTA Buttons */}
@@ -46,29 +46,29 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-glow">
+                <Code className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Full-Stack Development</h3>
+              <p className="text-muted-foreground">
+                End-to-end web solutions with modern technologies
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-glow">
                 <Bot className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Enterprise AI Automation</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">AI & RPA Automation</h3>
               <p className="text-muted-foreground">
-                Intelligent systems that automate complex workflows and reduce operational costs by 60%+
+                Intelligent agents that work 24/7 without human intervention
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-glow">
                 <Zap className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">E-commerce Automation</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">E-commerce Solutions</h3>
               <p className="text-muted-foreground">
-                Complete automation suites for inventory, orders, and analytics - proven to scale businesses to ₹10+ Crores
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-glow">
-                <Code className="h-8 w-8 text-primary-foreground" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Custom SaaS Development</h3>
-              <p className="text-muted-foreground">
-                Full-stack platforms built for startups and growing businesses with scalable architecture
+                Streamlined systems for inventory, analytics, and growth
               </p>
             </div>
           </div>

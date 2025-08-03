@@ -22,72 +22,64 @@ const ServicesShowcase = () => {
 
   const services = [
     {
-      icon: Bot,
-      title: "Enterprise AI Automation",
-      description: "Intelligent automation solutions for large-scale operations and complex workflows",
+      icon: Code,
+      title: "Full-Stack Development",
+      description: "Complete web application development from frontend to backend",
       features: [
-        "AI-Powered Process Automation",
-        "Intelligent Document Processing",
-        "Workflow Optimization Systems",
-        "Custom AI Agents & Chatbots",
-        "Predictive Analytics Integration",
-        "24/7 Autonomous Operations"
+        "React & Next.js Development",
+        "Node.js & Express Backend",
+        "Database Design & Management",
+        "API Development & Integration",
+        "Responsive UI/UX Design",
+        "Performance Optimization"
       ],
       color: "bg-gradient-primary",
-      stats: { projects: "15+", efficiency: "80%", clients: "12+" },
-      clientTypes: "Enterprise & Large Corporations",
-      useCase: "Automate complex business processes, reduce operational costs by 60%+, and enable 24/7 operations without human intervention."
+      stats: { projects: "25+", efficiency: "95%", clients: "15+" }
+    },
+    {
+      icon: Bot,
+      title: "AI & RPA Automation",
+      description: "Intelligent automation solutions that work 24/7 without human intervention",
+      features: [
+        "AI-Powered Chatbots",
+        "Process Automation",
+        "Workflow Optimization",
+        "Data Processing Automation",
+        "Social Media Automation",
+        "Custom AI Agents"
+      ],
+      color: "bg-gradient-secondary",
+      stats: { projects: "15+", efficiency: "80%", clients: "12+" }
     },
     {
       icon: ShoppingCart,
-      title: "E-commerce Automation Suite",
-      description: "Complete automation solutions for online retailers and marketplace sellers",
+      title: "E-commerce Solutions",
+      description: "Comprehensive e-commerce platforms and automation tools",
       features: [
-        "Multi-platform Integration (Amazon, Flipkart, etc.)",
-        "Smart Inventory Management",
-        "Automated Order Processing",
-        "Real-time Analytics & Reporting",
-        "Customer Review Management",
-        "Price Optimization Tools"
-      ],
-      color: "bg-gradient-secondary",
-      stats: { projects: "20+", efficiency: "90%", clients: "18+" },
-      clientTypes: "E-commerce Businesses & Online Retailers",
-      useCase: "Scale from startup to ₹10+ Crores revenue with automated inventory, orders, and customer management systems."
-    },
-    {
-      icon: Code,
-      title: "Custom SaaS Development",
-      description: "Full-stack platforms and applications built for growing businesses",
-      features: [
-        "React & Next.js Frontend",
-        "Node.js & Cloud Backend",
-        "Database Design & Optimization",
-        "API Development & Integration",
-        "Scalable Architecture",
-        "Performance & Security"
+        "Multi-platform Integration",
+        "Inventory Management",
+        "Order Processing Automation",
+        "Analytics & Reporting",
+        "Payment Gateway Integration",
+        "Customer Management"
       ],
       color: "bg-gradient-primary",
-      stats: { projects: "25+", efficiency: "95%", clients: "15+" },
-      clientTypes: "Startups & Growing Businesses",
-      useCase: "Build custom software solutions that grow with your business, from MVP to enterprise-scale platforms."
+      stats: { projects: "20+", efficiency: "90%", clients: "18+" }
     },
     {
-      icon: BarChart,
-      title: "Business Intelligence & Analytics",
-      description: "Transform raw data into actionable insights and automated reporting systems",
+      icon: Database,
+      title: "Data Analytics & Processing",
+      description: "Transform raw data into actionable business insights",
       features: [
-        "Real-time Data Processing",
-        "Custom Dashboard Development",
-        "Automated Report Generation",
-        "Predictive Analytics",
+        "Data Extraction & Validation",
+        "Real-time Analytics",
+        "Business Intelligence",
+        "Automated Reporting",
         "Data Visualization",
-        "Business Intelligence Tools"
+        "Predictive Analytics"
       ],
       color: "bg-gradient-secondary",
-      stats: { projects: "18+", efficiency: "85%", clients: "14+" },
-      clientTypes: "Data-Driven Organizations",
-      useCase: "Make informed decisions with real-time insights, automated reporting, and predictive analytics that drive growth."
+      stats: { projects: "18+", efficiency: "85%", clients: "14+" }
     }
   ];
 
@@ -155,21 +147,9 @@ const ServicesShowcase = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-6">
                   {currentService.description}
                 </p>
-
-                {/* Client Types */}
-                <div className="mb-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <h4 className="text-sm font-semibold text-primary mb-1">Perfect For:</h4>
-                  <p className="text-sm text-foreground">{currentService.clientTypes}</p>
-                </div>
-
-                {/* Use Case */}
-                <div className="mb-6 p-3 bg-muted/50 rounded-lg">
-                  <h4 className="text-sm font-semibold text-foreground mb-1">Real Impact:</h4>
-                  <p className="text-sm text-muted-foreground">{currentService.useCase}</p>
-                </div>
 
                 {/* Features */}
                 <div className="mb-6">
